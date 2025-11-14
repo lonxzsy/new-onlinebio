@@ -262,3 +262,42 @@ body {
 #play-pause-btn {
     transform-origin: center;
 }
+
+/* --- Адаптация для мобильных устройств --- */
+@media (max-width: 600px) {
+    body {
+        /* Позволяем скроллить, если контент не помещается на экране */
+        overflow-y: auto;
+        /* Убираем вертикальное центрирование, чтобы контент начинался сверху */
+        justify-content: flex-start;
+        padding-top: 100px; /* Отступ сверху, чтобы плеер не перекрывал карточку */
+        padding-bottom: 120px; /* Отступ снизу для цитат */
+    }
+
+    .bio-card {
+        padding: 30px 25px;
+        /* Убираем отступы, так как они теперь на body */
+        margin: 0;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .nickname {
+        font-size: 1.8em;
+    }
+
+    .lang-item i {
+        font-size: 3rem;
+    }
+
+    .music-island {
+        width: 95%;
+    }
+
+    #quote {
+        font-size: 1em;
+    }
+}
