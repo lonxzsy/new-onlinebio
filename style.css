@@ -166,6 +166,7 @@ body {
     padding: 25px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     text-align: center;
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
 }
 
 #quote {
@@ -196,6 +197,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 100;
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
 }
 
 .album-art-container {
@@ -270,13 +272,15 @@ body {
         overflow-y: auto;
         /* Убираем вертикальное центрирование, чтобы контент начинался сверху */
         justify-content: flex-start;
-        padding-top: 100px; /* Отступ сверху, чтобы плеер не перекрывал карточку */
-        padding-bottom: 120px; /* Отступ снизу для цитат */
+        /* Добавляем отступы по бокам для всего контента */
+        padding: 100px 15px 120px 15px;
+        box-sizing: border-box;
     }
 
     .bio-card {
         padding: 30px 25px;
-        /* Убираем отступы, так как они теперь на body */
+        /* Карточка теперь занимает 100% доступной ширины (с учетом padding на body) */
+        width: 100%;
         margin: 0;
     }
 
