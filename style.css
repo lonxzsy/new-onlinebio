@@ -1,0 +1,264 @@
+/* Импортируем красивый шрифт от Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+body {
+    /* Фон с затемненным изображением */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('wallpaper.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #e0e0e0; /* Светлый текст */
+    font-family: 'Poppins', sans-serif; /* Новый шрифт */
+    display: flex;
+    flex-direction: column; /* Позволяет цитатам быть внизу */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Убираем прокрутку */
+}
+
+/* Стили для холста с частицами */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Помещаем за всем контентом */
+}
+
+.bio-card {
+    background-color: rgba(20, 20, 20, 0.8); /* Такой же цвет, как у Island Bar */
+    backdrop-filter: blur(10px); /* Эффект размытия для "стеклянного" вида */
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    display: flex; /* Улучшаем позиционирование */
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для наведения */
+}
+.bio-card:hover {
+    transform: translateY(-10px); /* "Приподнимаем" карточку */
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Это свойство делает аватарку круглой */
+    border: 5px solid #4a4a4a;
+    object-fit: cover; /* Сохраняет пропорции изображения */
+    margin-bottom: 20px;
+}
+
+.nickname-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.nickname {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 600; /* Немного тоньше для нового шрифта */
+    color: #ffffff;
+}
+
+/* --- Стили для индикатора статуса --- */
+#status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.status-online {
+    background-color: #3ba55d; /* Зеленый */
+    box-shadow: 0 0 8px #3ba55d;
+    animation: pulse-animation 2s infinite;
+}
+
+.status-offline {
+    background-color: #747f8d; /* Серый */
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.dob {
+    margin-top: 5px;
+    color: #a0a0a0;
+    font-size: 1em;
+}
+
+.languages {
+    margin-top: 30px;
+}
+
+.languages h2 {
+    font-size: 1.2em;
+    color: #c0c0c0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.language-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lang-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-item i {
+    font-size: 3.5rem; /* Уменьшили размер иконок */
+    opacity: 0.7; /* Прозрачность */
+    transition: opacity 0.3s, color 0.3s, transform 0.3s;
+}
+
+.lang-item i:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Небольшое увеличение при наведении */
+}
+
+/* Кастомные цвета для иконок при наведении */
+.icon-cpp:hover {
+    color: #649ad2;
+}
+.icon-python:hover {
+    color: #ffd43b;
+}
+.icon-csharp:hover {
+    color: #9a4993;
+}
+.icon-fullstack:hover {
+    color: #512bd4; /* Фирменный цвет .NET */
+}
+
+.lang-item span {
+    font-size: 0.9em;
+    color: #a0a0a0;
+}
+
+.quote-container {    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    text-align: center;
+}
+
+#quote {
+    font-family: 'Noto Sans JP', sans-serif; /* Специальный шрифт для японского */
+    font-size: 1.1em;
+    font-weight: 300;
+    margin: 0;
+    color: #d0d0d0;
+    opacity: 0; /* Начальная прозрачность 0 */
+    transition: opacity 1.5s ease-in-out; /* Плавный переход */
+}
+
+/* --- Стили для музыкального плеера --- */
+.music-island {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    background-color: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: 50px; /* Сильно скругленные углы */
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.album-art-container {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#album-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-info {
+    flex-grow: 1;
+    margin: 0 15px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.song-info p {
+    margin: 0;
+    white-space: nowrap;
+    transition: opacity 0.4s ease;
+}
+
+#song-title {
+    font-weight: 600;
+    color: #fff;
+}
+
+#song-artist {
+    font-size: 0.8em;
+    color: #b0b0b0;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-controls button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0; /* Убираем лишнюю высоту строки */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.music-controls button:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+#play-pause-btn {
+    transform-origin: center;
+}

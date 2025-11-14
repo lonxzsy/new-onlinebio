@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн Био</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем библиотеку иконок Devicon для логотипов языков -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+</head>
+<body>
+
+    <!-- Холст для анимации частиц -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Музыкальный плеер "Island Bar" -->
+    <div class="music-island">
+        <div class="album-art-container">
+            <!-- ЗАМЕНИТЕ НА ОБЛОЖКУ ПЕРВОГО ТРЕКА -->
+            <img src="https://via.placeholder.com/50" alt="Album Art" id="album-art">
+        </div>
+        <div class="song-info">
+            <p id="song-title">Название трека</p>
+            <p id="song-artist">Исполнитель</p>
+        </div>
+        <div class="music-controls">
+            <button id="prev-btn" title="Предыдущий трек">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22px" height="22px"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"></path></svg>
+            </button>
+            <button id="play-pause-btn" title="Воспроизвести/Пауза">
+                <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28px" height="28px"><path d="M8 5v14l11-7z"></path></svg>
+                <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28px" height="28px" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+            </button>
+            <button id="next-btn" title="Следующий трек">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22px" height="22px"><path d="m16 6 8.5 6-8.5 6V6zm-8.5 12H6V6h1.5v12z"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <!-- ЗАМЕНИТЕ 'avatar.jpg' НА ПУТЬ К ВАШЕМУ ФАЙЛУ АВАТАРКИ -->
+        <img src="avatar.jpg" alt="Аватар" class="avatar">
+        
+        <div class="nickname-container">
+            <h1 class="nickname">lonxzsy</h1>
+            <span id="status-indicator" class="status-offline" title="Статус в Telegram"></span>
+        </div>
+        <p class="dob">23.07.2005</p>
+
+        <div class="languages">
+            <h2>My Programming Languages</h2>
+            <div class="language-icons">
+                <div class="lang-item">
+                    <i class="devicon-cplusplus-plain icon-cpp"></i>
+                    <span>C++</span>
+                </div>
+                <div class="lang-item">
+                    <i class="devicon-python-plain icon-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="lang-item">
+                    <i class="devicon-csharp-plain icon-csharp"></i>
+                    <span>C#</span>
+                </div>
+                <div class="lang-item">
+                    <!-- Иконка для Full-Stack -->
+                    <i class="devicon-dot-net-plain icon-fullstack"></i>
+                    <span>Full-Stack Dev</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote-container">
+        <p id="quote"></p>
+    </div>
+
+    <!-- Аудио элемент для проигрывания музыки -->
+    <audio id="audio-player"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
